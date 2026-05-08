@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+@theme {
+    --color-base: #F7F50;
+    --color-earth-brown: #382E26;
+    --color-sprout-green: #5C7C43;
+    --color-leaf-green: #89A066;
+    --color-banana-yellow: #E5C25E;
+    --color-banana-red: #933A31;
+
+    --font-fraunces: "Fraunces", serif;
+    --font-dm-sans: "DM Sans", sans-serif;
+    --font-caveat: "Caveat", cursive;
+}
