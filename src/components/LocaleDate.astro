@@ -1,0 +1,16 @@
+---
+interface Props {
+  date: string | Date;
+}
+
+const { date } = Astro.props;
+const dateObj = date instanceof Date ? date : new Date(date);
+
+const formattedDate = dateObj.toLocaleDateString("en-CA", {
+  timeZone: "UTC",
+});
+---
+
+<time datetime={dateObj.toISOString()}>
+  {formattedDate}
+</time>

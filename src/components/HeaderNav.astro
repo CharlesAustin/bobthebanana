@@ -1,0 +1,33 @@
+---
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => href === pathname;
+const navItems = [
+  { name: "Posts", href: "/posts" },
+  { name: "About", href: "/about" },
+];
+---
+
+<nav class="flex items-center justify-between">
+  <menu class="flex gap-3">
+    {
+      navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class={
+              isActive(item.href)
+                ? "bg-sprout-green rounded-xl border-2 text-base" +
+                  " px-3 py-2" +
+                  " border-sprout-green"
+                : "hover:border-banana-yellow rounded-xl border-2 transition-colors" +
+                  " duration-200 ease-linear" +
+                  " border-transparent px-3 py-2"
+            }
+          >
+            {item.name}
+          </a>
+        </li>
+      ))
+    }
+  </menu>
+</nav>
