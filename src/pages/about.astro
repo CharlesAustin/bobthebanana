@@ -1,8 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Main from "../layouts/Main.astro";
+import { Content as AboutContent } from "../components/aboutContent.mdx";
+const title = "About";
 ---
 
 <Layout>
-  <Main> Hello, About! </Main>
+  <Main>
+    <AboutContent />
+  </Main>
 </Layout>

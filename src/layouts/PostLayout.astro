@@ -2,14 +2,10 @@
 import Layout from "./Layout.astro";
 import Main from "../layouts/Main.astro";
 import type { MarkdownLayoutProps } from "astro";
+import type { PostFrontmatter } from "../env";
 import LocaleDate from "../components/LocaleDate.astro";
 
-type Props = MarkdownLayoutProps<{
-  title: string;
-  date: string;
-  author: string;
-}>;
-
+type Props = MarkdownLayoutProps<PostFrontmatter>;
 const { frontmatter } = Astro.props;
 ---
 

@@ -1,0 +1,36 @@
+---
+import type { PostInstance } from "../env";
+import LocaleDate from "./LocaleDate.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const posts = Object.values(
+  import.meta.glob("../pages/posts/*.md", { eager: true }),
+) as PostInstance[];
+const latestPost = posts.sort((a, b) => {
+  return (
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
+  );
+})[0];
+---
+
+{
+  latestPost ? (
+    <section class={className}>
+      <h2 class="text-sprout-green font-dm-sans border-sprout-green/30 border-b pb-2 text-lg font-bold uppercase">
+        Latest Post
+      </h2>
+      <article class="border-leaf-green rounded-lg border bg-white p-4">
+        <h3>{latestPost.frontmatter.title}</h3>
+        <LocaleDate date={latestPost.frontmatter.date} />
+      </article>
+    </section>
+  ) : (
+    <p class={className}>No posts found...yet.</p>
+  )
+}
