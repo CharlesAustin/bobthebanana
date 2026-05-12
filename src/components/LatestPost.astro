@@ -9,7 +9,7 @@ interface Props {
 const { class: className } = Astro.props;
 
 const posts = Object.values(
-  import.meta.glob("../pages/posts/*.md", { eager: true }),
+  import.meta.glob("../pages/posts/*.mdx", { eager: true }),
 ) as PostInstance[];
 const latestPost = posts.sort((a, b) => {
   return (
@@ -25,9 +25,15 @@ const latestPost = posts.sort((a, b) => {
       <h2 class="text-sprout-green font-dm-sans border-sprout-green/30 border-b pb-2 text-lg font-bold uppercase">
         Latest Post
       </h2>
-      <article class="border-leaf-green rounded-lg border bg-white p-4">
-        <h3>{latestPost.frontmatter.title}</h3>
-        <LocaleDate date={latestPost.frontmatter.date} />
+      <article class="mt-8">
+        <a
+          class="border-leaf-green block rounded-lg border bg-white p-4"
+          href={latestPost.url}
+          aria-label="Go to latest post"
+        >
+          <h3 class="text-sprout-green">{latestPost.frontmatter.title}</h3>
+          <LocaleDate date={latestPost.frontmatter.date} />
+        </a>
       </article>
     </section>
   ) : (

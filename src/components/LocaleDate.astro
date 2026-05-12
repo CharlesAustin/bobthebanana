@@ -1,9 +1,10 @@
 ---
 interface Props {
   date: string | Date;
+  class?: string;
 }
 
-const { date } = Astro.props;
+const { date, class: className } = Astro.props;
 const dateObj = date instanceof Date ? date : new Date(date);
 
 const formattedDate = dateObj.toLocaleDateString("en-CA", {
@@ -11,6 +12,6 @@ const formattedDate = dateObj.toLocaleDateString("en-CA", {
 });
 ---
 
-<time datetime={dateObj.toISOString()}>
+<time class={className + " block"} datetime={dateObj.toISOString()}>
   {formattedDate}
 </time>

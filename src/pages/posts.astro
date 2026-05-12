@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Main from "../layouts/Main.astro";
 import LocaleDate from "../components/LocaleDate.astro";
 const getPosts = Object.values(
-  import.meta.glob("./posts/*.md", { eager: true }),
+  import.meta.glob("./posts/*.mdx", { eager: true }),
 );
 ---
 
