@@ -1,22 +1,17 @@
 ---
-import type { PostInstance } from "../env";
+import { getCollection } from "astro:content";
 import LocaleDate from "./LocaleDate.astro";
+import { Picture } from "astro:assets";
 
 interface Props {
   class?: string;
 }
 
 const { class: className } = Astro.props;
-
-const posts = Object.values(
-  import.meta.glob("../pages/posts/*.mdx", { eager: true }),
-) as PostInstance[];
-const latestPost = posts.sort((a, b) => {
-  return (
-    new Date(b.frontmatter.date).valueOf() -
-    new Date(a.frontmatter.date).valueOf()
-  );
-})[0];
+const allPosts = await getCollection("posts");
+const latestPost = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+)[0];
 ---
 
 {
@@ -27,12 +22,39 @@ const latestPost = posts.sort((a, b) => {
       </h2>
       <article class="mt-8">
         <a
-          class="border-leaf-green block rounded-lg border bg-white p-4"
-          href={latestPost.url}
+          class="group border-leaf-green hover:shadow-sprout-green/30 relative flex overflow-hidden rounded-lg border bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+          href={`/posts/${latestPost.id}/`}
           aria-label="Go to latest post"
         >
-          <h3 class="text-sprout-green">{latestPost.frontmatter.title}</h3>
-          <LocaleDate date={latestPost.frontmatter.date} />
+          {latestPost.data.featImage && (
+            <div class="shrink-0">
+              <Picture
+                src={latestPost.data.featImage}
+                alt={latestPost.data.title}
+                class="size-30 rounded-lg object-cover"
+              />
+            </div>
+          )}
+          <div class="pr-3 pl-6">
+            <h3 class="text-sprout-green mb-1">{latestPost.data.title}</h3>
+            <LocaleDate
+              date={latestPost.data.pubDate}
+              class="text-base font-semibold"
+            />
+            {latestPost.data.description && (
+              <p class="mt-2 mb-0">{latestPost.data.description}</p>
+            )}
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="48px"
+            viewBox="0 -960 960 960"
+            width="48px"
+            fill="currentColor"
+            class="text-sprout-green group-hover:text-banana-yellow shrink-0 self-center transition-colors duration-300"
+          >
+            <path d="M530-481 332-679l43-43 241 241-241 241-43-43 198-198Z" />
+          </svg>
         </a>
       </article>
     </section>

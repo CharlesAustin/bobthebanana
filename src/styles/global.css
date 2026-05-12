@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-    --color-base: #F7F5F0;
+    --color-canvas: #F7F5F0;
     --color-earth-brown: #382E26;
     --color-sprout-green: #5C7C43;
     --color-leaf-green: #89A066;
@@ -41,6 +41,10 @@
 
     p {
         @apply mb-6;
+    }
+
+    img {
+        @apply rounded-xl;
     }
 }
 

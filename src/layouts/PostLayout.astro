@@ -2,18 +2,19 @@
 import Layout from "./Layout.astro";
 import Main from "../layouts/Main.astro";
 import type { MarkdownLayoutProps } from "astro";
-import type { PostFrontmatter } from "../env";
 import LocaleDate from "../components/LocaleDate.astro";
+import type { CollectionEntry } from "astro:content";
 
-type Props = MarkdownLayoutProps<PostFrontmatter>;
-const { frontmatter } = Astro.props;
+type Props = CollectionEntry<"posts">["data"];
+
+const { title, description, pubDate, updatedDate, featImage } = Astro.props;
 ---
 
 <Layout>
   <Main>
     <article>
-      <h1 class="font-fraunces text-5xl">{frontmatter.title}</h1>
-      <LocaleDate date={frontmatter.date} class="mb-5" />
+      <h1 class="font-fraunces text-5xl">{title}</h1>
+      <LocaleDate date={pubDate} class="mb-5" />
       <slot />
     </article>
   </Main>
