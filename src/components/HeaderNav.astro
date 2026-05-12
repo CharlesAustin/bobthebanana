@@ -1,6 +1,9 @@
 ---
 const pathname = Astro.url.pathname;
-const isActive = (href: string) => href === pathname;
+const isActive = (href: string) => {
+  const normalize = (path: string) => path.replace(/\/$/, "") || "/";
+  return normalize(pathname) === normalize(href);
+};
 
 const navItems = [
   { name: "Posts", href: "/posts" },
