@@ -14,7 +14,10 @@ const { title, description, pubDate, updatedDate, featImage } = Astro.props;
   <Main>
     <article>
       <h1 class="font-fraunces text-5xl">{title}</h1>
-      <LocaleDate date={pubDate} class="mb-5" />
+      <LocaleDate
+        date={pubDate}
+        class="border-leaf-green mb-5 inline-block rounded-xl border px-3 py-1.5 text-base"
+      />
       <slot />
     </article>
   </Main>

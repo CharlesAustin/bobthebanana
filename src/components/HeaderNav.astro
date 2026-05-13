@@ -20,12 +20,12 @@ const navItems = [
             href={item.href}
             class={
               isActive(item.href)
-                ? "bg-sprout-green text-canvas rounded-xl border-2" +
-                  " px-3 py-2" +
+                ? "bg-sprout-green text-canvas block rounded-xl border-2 text-base sm:text-lg" +
+                  " px-2.5 py-1.5 sm:px-3 sm:py-2" +
                   " border-sprout-green"
-                : "hover:border-banana-yellow rounded-xl border-2 transition-colors" +
+                : "hover:border-banana-yellow block rounded-xl border-2 text-base transition-colors sm:text-lg" +
                   " duration-200 ease-linear" +
-                  " border-transparent px-3 py-2"
+                  " border-transparent px-2.5 py-1.5 sm:px-3 sm:py-2"
             }
           >
             {item.name}

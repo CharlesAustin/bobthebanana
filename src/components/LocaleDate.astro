@@ -12,6 +12,6 @@ const formattedDate = dateObj.toLocaleDateString("en-CA", {
 });
 ---
 
-<time class={className + " block"} datetime={dateObj.toISOString()}>
+<time class={className} datetime={dateObj.toISOString()}>
   {formattedDate}
 </time>

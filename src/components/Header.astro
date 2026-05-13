@@ -2,10 +2,12 @@
 import HeaderNav from "./HeaderNav.astro";
 ---
 
-<header class="flex justify-between py-4 sm:py-8">
-  <a href="/" class="flex items-center gap-2 text-2xl">
-    <span class="text-4xl">🌱</span>
-    <span class="font-fraunces mt-1">Bob the Banana</span>
+<header
+  class="border-leaf-green bg-canvas shadow-sprout-green/10 sticky top-4 flex justify-between gap-3 rounded-xl border px-4 py-4 shadow-md sm:py-5"
+>
+  <a href="/" class="flex items-center gap-2 text-xl sm:text-2xl">
+    <span class="text-3xl sm:text-4xl">🌱</span>
+    <span class="font-fraunces mt-1 leading-none">Bob the Banana</span>
   </a>
   <HeaderNav />
 </header>

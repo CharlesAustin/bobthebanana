@@ -15,7 +15,7 @@ const allPosts = await getCollection("posts");
         allPosts.map((post: any) => (
           <li>
             <a
-              class="group border-t-leaf-green flex items-center justify-between border-t py-4"
+              class="group border-b-leaf-green flex items-center justify-between border-b py-4"
               href={`/posts/${post.id}/`}
             >
               <div class="">
