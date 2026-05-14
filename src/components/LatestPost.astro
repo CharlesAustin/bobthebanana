@@ -26,12 +26,14 @@ const latestPost = allPosts.sort(
           href={`/posts/${latestPost.id}/`}
           aria-label="Go to latest post"
         >
-          <div class="flex">
+          <div class="flex items-center">
             {latestPost.data.featImage && (
               <div class="shrink-0">
                 <Picture
                   src={latestPost.data.featImage}
                   alt={latestPost.data.title}
+                  width={240}
+                  height={240}
                   class="size-30 rounded-lg object-cover"
                 />
               </div>
