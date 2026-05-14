@@ -8,14 +8,18 @@
     --color-banana-yellow: #E5C25E;
     --color-banana-red: #933A31;
 
-    --font-fraunces: "Fraunces", serif;
-    --font-dm-sans: "DM Sans", sans-serif;
-    --font-caveat: "Caveat", cursive;
+    --font-fraunces: "Fraunces Variable", serif;
+    --font-dm-sans: "DM Sans Variable", sans-serif;
+    --font-caveat: "Caveat Variable", cursive;
 }
 
 @layer base {
     html {
         scrollbar-gutter: stable;
+    }
+
+    body {
+        @apply font-normal;
     }
 
     h1,h2,h3,h4,h5,h6 {
