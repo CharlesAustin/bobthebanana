@@ -19,11 +19,11 @@ const allPosts = await getCollection("posts");
               href={`/posts/${post.id}/`}
             >
               <div class="">
-                <h2 class="font-fraunces mb-1 text-3xl">{post.data.title}</h2>
+                <h2 class="font-fraunces mb-1 text-2xl">{post.data.title}</h2>
                 <LocaleDate date={post.data.pubDate} />
               </div>
               <div class="flex items-center gap-2">
-                <span class="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span class="text-base opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   Read this post
                 </span>
                 <span>
