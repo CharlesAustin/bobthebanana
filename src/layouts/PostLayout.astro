@@ -4,10 +4,12 @@ import Main from "../layouts/Main.astro";
 import type { MarkdownLayoutProps } from "astro";
 import LocaleDate from "../components/LocaleDate.astro";
 import type { CollectionEntry } from "astro:content";
+import Picture from "astro/components/Picture.astro";
 
 type Props = CollectionEntry<"posts">["data"];
 
-const { title, description, pubDate, updatedDate, featImage } = Astro.props;
+const { title, description, pubDate, updatedDate, featImage, featImageAlt } =
+  Astro.props;
 ---
 
 <Layout>
@@ -18,6 +20,18 @@ const { title, description, pubDate, updatedDate, featImage } = Astro.props;
         date={pubDate}
         class="border-leaf-green mb-5 inline-block rounded-xl border px-3 py-1.5 text-base"
       />
+      {
+        featImage && (
+          <Picture
+            src={featImage}
+            alt={featImageAlt}
+            formats={["avif", "webp"]}
+            layout="full-width"
+            width={1600}
+            height={900}
+          />
+        )
+      }
       <slot />
     </article>
   </Main>

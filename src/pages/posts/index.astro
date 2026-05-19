@@ -13,18 +13,18 @@ const allPosts = await getCollection("posts");
     <ul>
       {
         allPosts.map((post: any) => (
-          <li>
+          <li class="mb-4">
             <a
-              class="group border-b-leaf-green flex items-center justify-between border-b py-4"
+              class="group border-leaf-green hover:shadow-sprout-green/30 flex items-center justify-between rounded-xl border bg-white px-4 py-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
               href={`/posts/${post.id}/`}
             >
-              <div class="">
+              <div class="pr-1">
                 <h2 class="font-fraunces mb-1 text-2xl">{post.data.title}</h2>
                 <LocaleDate date={post.data.pubDate} />
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-base opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Read this post
+                <span class="text-sprout-green text-base font-medium text-nowrap opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  Continue reading
                 </span>
                 <span>
                   <svg

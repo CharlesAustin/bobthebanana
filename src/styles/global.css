@@ -47,7 +47,7 @@
     }
 
     img {
-        @apply rounded-xl;
+        @apply rounded-xl mb-6;
     }
 }
 

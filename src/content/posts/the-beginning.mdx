@@ -3,13 +3,12 @@ title: "Week 0: The beginning"
 author: Austin
 description: "Hello, Banana! Get ready to enter the banana-dome as Bob embarks on his journey."
 pubDate: 2026-05-11
-featImage: ../../assets/images/bob_banana.jpg
-featImageAlt: A red banana in a pot
 ---
 import { Picture } from "astro:assets";
-import bob_banana from "../../assets/images/bob_banana.jpg";
+import bob_banana from "../../assets/images/bob_banana.jpeg";
 
-<Picture class="mb-6" src={bob_banana} formats={['avif', 'webp']} layout="constrained" width={450} height={600} alt="A
+<Picture class="mb-6 mx-auto" src={bob_banana} formats={['avif', 'webp']} layout="constrained" width={450} height={600}
+		 alt="A
 red
 banana plant
 in a pot" />

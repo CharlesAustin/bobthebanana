@@ -12,7 +12,7 @@ const posts = defineCollection({
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       featImage: z.optional(image()),
-      featImageAlt: z.string().optional(),
+      featImageAlt: z.string().default("Featured image"),
     }),
 });
 
