@@ -23,7 +23,7 @@ const allPosts = await getCollection("posts");
                 <LocaleDate date={post.data.pubDate} />
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-sprout-green text-base font-medium text-nowrap opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span class="text-sprout-green hidden text-base font-medium text-nowrap opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block">
                   Continue reading
                 </span>
                 <span>
